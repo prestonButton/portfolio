@@ -47,7 +47,12 @@ export default function Login() {
               placeholder="Password"
               className="border-2 border-gray-500 p-2 bg-transparent focus:outline-none focus:border-gray-600 focus:bg-gray-900"
             />
-            <button onClick={handleSignIn} className="bg-gray-500 hover:bg-gray-600 text-white p-2">Sign in</button>
+            <button 
+                onClick={handleSignIn} 
+                className="bg-gray-500 hover:bg-gray-600 text-white p-2"
+            >
+                Sign in
+            </button>
         </div>
     </div>
   )
