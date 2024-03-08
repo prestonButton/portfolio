@@ -101,9 +101,10 @@ const ProjectForm = () => {
 
         return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/project-images/${filePath}`;
     };
-
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        /*
 
         // Upload images and get URLs
         const imageUrls = await Promise.all(
@@ -146,7 +147,7 @@ const ProjectForm = () => {
         } else {
             console.log("Project and images added successfully");
             // Reset form or give user feedback
-        }
+        }*/
     };
 
     return (
