@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const Page = async () => {
   const loginAction = async (formData: FormData) => {
@@ -19,6 +20,9 @@ const Page = async () => {
     if (username && password) {
       cookiesStore.set("auth", "true");
     }
+
+    //On successful auth
+    redirect("/add");
   };
   return (
     <main className="w-svw h-svh flex flex-col items-center justify-center">
