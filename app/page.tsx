@@ -1,59 +1,59 @@
-'use client'
+import { cookies } from "next/headers";
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+const Page = async () => {
+  const loginAction = async (formData: FormData) => {
+    "use server";
 
-export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const router = useRouter()
-  const supabase = createClientComponentClient()
+    const cookiesStore = cookies();
 
-  const handleSignIn = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) {
-        console.error('Error signing in:', error.message);
-        alert(`Error signing in: ${error.message}`);
-        setEmail('');
-        setPassword('');
-        return;
-    }
+    const rawFormData = {
+      username: formData.get("username"),
+      password: formData.get("password"),
+    };
 
-    if (!error && data.session) {
-      router.push('/protected');
+    const username = rawFormData.username;
+    const password = rawFormData.password;
+
+    //implement more robust authentication here
+    console.table(rawFormData);
+    if (username && password) {
+      cookiesStore.set("auth", "true");
     }
   };
-
   return (
-    <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col space-y-2 w-96">
-            <input 
-                name="email"
-                type="email"
-                onChange={(e) => setEmail(e.target.value)} 
-                value={email}
-                placeholder="Email"
-                className="border-2 border-gray-500 p-2 bg-transparent focus:outline-none focus:border-gray-600 focus:bg-gray-900" 
-            />
-            <input
-              type="password"
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              placeholder="Password"
-              className="border-2 border-gray-500 p-2 bg-transparent focus:outline-none focus:border-gray-600 focus:bg-gray-900"
-            />
-            <button 
-                onClick={handleSignIn} 
-                className="bg-gray-500 hover:bg-gray-600 text-white p-2"
-            >
-                Sign in
-            </button>
-        </div>
-    </div>
-  )
-}
+    <main className="w-svw h-svh flex flex-col items-center justify-center">
+      <form
+        action={loginAction}
+        autoComplete="off"
+        className="flex flex-col gap-2 p-4 w-72"
+      >
+        <label htmlFor="username" className="flex flex-col text-sm">
+          Username
+          <input
+            id="username"
+            name="username"
+            type="text"
+            className="bg-transparent border border-gray-700 p-2 focus:outline-none"
+          />
+        </label>
+        <label htmlFor="password" className="flex flex-col text-sm">
+          Password
+          <input
+            id="password"
+            name="password"
+            type="password"
+            className="bg-transparent border border-gray-700 p-2 focus:outline-none"
+          />
+        </label>
+        <button
+          type="submit"
+          className="bg-gray-700 px-3 py-2 active:bg-gray-800"
+        >
+          Submit
+        </button>
+      </form>
+    </main>
+  );
+};
+
+export default Page;
