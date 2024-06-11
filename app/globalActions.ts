@@ -8,10 +8,11 @@ const checkLoginStatus = async () => {
 
   const isLoggedIn = cookiesStore.get("auth");
 
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
+    redirect("/add");
+  } else {
     redirect("/");
   }
 };
 
 export default checkLoginStatus;
-

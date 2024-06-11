@@ -1,4 +1,4 @@
-import checkLoginStatus from "./actions";
+import checkLoginStatus from "../globalActions";
 
 export default async function Layout({
   children,
