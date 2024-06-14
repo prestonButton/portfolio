@@ -35,7 +35,6 @@ const data = [
     subTitle: "The Bruderhof Community",
     coverImage: Cover,
     cols: 8,
-    rows: 1,
   },
   {
     slug: "border-kills",
@@ -70,7 +69,7 @@ const data = [
     title: "Small Boats",
     subTitle: "The Mediterranean Crisis",
     coverImage: SmallBoats,
-    cols: 6,
+    cols: 8,
   },
   {
     slug: "eden",
@@ -83,13 +82,13 @@ const data = [
 
 const Page = async () => {
   return (
-    <div id="container" className="w-svw h-svh flex flex-col items-center p-4">
-      <h1 className="text-2xl font-bold text-gray-700 py-4">
+    <div id="container" className="flex flex-col items-center p-4 w-svw h-svh">
+      <h1 className="py-4 text-2xl font-bold text-gray-700">
         Danny Burrows Photography
       </h1>
       <section
         id="photo_grid"
-        className="grid grid-cols-12 md:grid-cols-12 grid-rows-auto border w-full gap-3 mb-12"
+        className="grid w-full grid-cols-12 gap-3 mb-12 border md:grid-cols-12"
       >
         {
           // Loop through the data array and create a GridPhoto component for each item
@@ -112,7 +111,7 @@ const Page = async () => {
 export default Page;
 
 const GridPhoto = ({
-  cols,
+  cols = 6,
   rows = 1,
   title,
   subtitle,
@@ -131,8 +130,7 @@ const GridPhoto = ({
   return (
     <Link
       href={`/${slug}`}
-      // Embedded template literal at the end sets the start property if provided
-      className={`col-span-6  h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}'}`}
+      className={`col-span-${cols} h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
     >
       <Image
         src={image}
@@ -140,11 +138,11 @@ const GridPhoto = ({
         priority
         className="w-full h-[calc(100%-1.5rem)] lg:h-full object-cover lg:filter lg:hover:scale-105 transition-transform duration-300 ease-in-out"
       />
-      <div className="absolute flex flex-row px-2 items-center justify-center lg:items-start lg:flex-col space-2 bottom-0 left-0 w-full lg:w-auto text-center text-xs text-gray-500 lg:text-left lg:text-white lg:p-2 lg:text-2xl lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-full lg:group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+      <div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full px-2 text-xs text-center text-gray-500 transition-all duration-300 ease-in-out lg:items-start lg:flex-col space-2 lg:w-auto lg:text-left lg:text-white lg:p-2 lg:text-2xl lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-full lg:group-hover:translate-y-0">
         <span className="lg:font-semibold text-nowrap text-ellipsis">
           {title}{" "}
         </span>
-        <span className=" text-ellipses line-clamp-1 text-pretty invisible md:visible text-ellipsis lg:text-lg before:content-['_-_'] lg:before:content-['']">
+        <span className="text-ellipses line-clamp-1 text-pretty invisible md:visible text-ellipsis lg:text-lg before:content-['_-_'] lg:before:content-['']">
           {subtitle}
         </span>
       </div>
