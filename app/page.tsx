@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 
 // Photos Imports
 import Cover from "@/public/portfolio_photos/cover.jpg";
@@ -128,9 +129,10 @@ const GridPhoto = ({
   slug: string;
 }) => {
   return (
-    <div
+    <Link
+      href={`/${slug}`}
       // Embedded template literal at the end sets the start property if provided
-      className={`col-span-${cols} h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}'}`}
+      className={`col-span-6  h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}'}`}
     >
       <Image
         src={image}
@@ -146,6 +148,6 @@ const GridPhoto = ({
           {subtitle}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
