@@ -3,24 +3,7 @@ import Link from "next/link";
 
 // Photos Imports
 import Cover from "@/public/portfolio_photos/cover.jpg";
-// import Photo1 from "@/public/portfolio_photos/1.jpg";
-// import Photo2 from "@/public/portfolio_photos/2.jpg";
-// import Photo3 from "@/public/portfolio_photos/3.jpg";
-// import Photo4 from "@/public/portfolio_photos/4.jpg";
-// import Photo5 from "@/public/portfolio_photos/5.jpg";
-// import Photo6 from "@/public/portfolio_photos/6.jpg";
-// import Photo7 from "@/public/portfolio_photos/7.jpg";
-// import Photo8 from "@/public/portfolio_photos/8.jpg";
-// import Photo9 from "@/public/portfolio_photos/9.jpg";
-// import Photo10 from "@/public/portfolio_photos/10.jpg";
-// import Photo11 from "@/public/portfolio_photos/11.jpg";
-// import Photo12 from "@/public/portfolio_photos/12.jpg";
-// import Photo13 from "@/public/portfolio_photos/13.jpg";
-// import Photo14 from "@/public/portfolio_photos/14.jpg";
-// import Photo15 from "@/public/portfolio_photos/15.jpg";
-// import Photo16 from "@/public/portfolio_photos/16.jpg";
-// import Photo17 from "@/public/portfolio_photos/17.jpg";
-// import Photo18 from "@/public/portfolio_photos/18.jpg";
+
 import Eden from "@/public/portfolio_photos/Eden.jpg";
 import BorderKills from "@/public/portfolio_photos/border_kills.jpg";
 import IndeterminateState from "@/public/portfolio_photos/indeterminate_state.jpg";
@@ -30,7 +13,7 @@ import SmallBoats from "@/public/portfolio_photos/small_boats.jpg";
 
 const data = [
   {
-    slug: "together-apart",
+    slug: "together_apart",
     title: "Together (A)part",
     subTitle: "The Bruderhof Community",
     coverImage: Cover,
@@ -69,7 +52,7 @@ const data = [
     title: "Small Boats",
     subTitle: "The Mediterranean Crisis",
     coverImage: SmallBoats,
-    cols: 8,
+    cols: 6,
   },
   {
     slug: "eden",
@@ -130,7 +113,7 @@ const GridPhoto = ({
   return (
     <Link
       href={`/${slug}`}
-      className={`col-span-${cols} h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
+      className={`col-span-6 h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
     >
       <Image
         src={image}
