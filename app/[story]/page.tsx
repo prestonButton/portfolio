@@ -3,6 +3,8 @@ import Image from "next/image";
 
 const API_URL = process.env.API_URL;
 
+const currentYear = new Date().getFullYear();
+
 const Page = async ({ params }: { params: { story: string } }) => {
   const getStory = async () => {
     "use server";
@@ -24,6 +26,7 @@ const Page = async ({ params }: { params: { story: string } }) => {
           src={story.coverImage}
           alt={story.title}
           width={story.coverImage.width}
+          priority
           className="object-cover h-full"
         />
         <div
@@ -50,11 +53,16 @@ const Page = async ({ params }: { params: { story: string } }) => {
       <div className="w-full flex items-center justify-center">
         <button
           type="button"
-          className="border-2 border-gray-600 px-3 py-2 text-gray-600"
+          className="border-2 border-gray-600 px-3 py-2 text-gray-600 text-lg font-bold hover:bg-gray-200 active:bg-gray-400"
         >
-          View Photos
+          View Photos →
         </button>
       </div>
+      <footer className="w-full p-2">
+        <p className="text-gray-500 text-xs">
+          &copy; {currentYear} - All rights reserved
+        </p>
+      </footer>
     </div>
   );
 };
