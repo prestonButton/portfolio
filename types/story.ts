@@ -4,6 +4,7 @@ type Story = {
   slug: string;
   title: string;
   subTitle: string;
+  years: string;
   coverImage: StaticImageData;
   content: string;
   cols: number;

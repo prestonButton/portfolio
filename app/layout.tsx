@@ -7,8 +7,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "CMS for Photos",
-  description: "CMS for Danny Burrows' photos",
+  title: "Danny Burrows Photography",
+  description: "Danny Burrows Photography",
 };
 
 export default function RootLayout({

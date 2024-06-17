@@ -14,7 +14,3 @@ h5,
 h6 {
     text-wrap: balanced;
 }
-
-.story_hero_image {
-    width: calc(100% / 17);
-}
