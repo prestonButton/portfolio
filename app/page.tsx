@@ -13,7 +13,7 @@ import SmallBoats from "@/public/portfolio_photos/small_boats.jpg";
 
 const data = [
   {
-    slug: "together_apart",
+    slug: "together-apart",
     title: "Together (A)part",
     subTitle: "The Bruderhof Community",
     coverImage: Cover,
@@ -113,7 +113,7 @@ const GridPhoto = ({
   return (
     <Link
       href={`/${slug}`}
-      className={`col-span-6 h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
+      className={`h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
     >
       <Image
         src={image}
