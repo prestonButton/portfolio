@@ -24,72 +24,156 @@ const Page = async () => {
 		},
 		{
 			id: 2,
-			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			content:
+				<PhotoComponent
+					src={TogetherApart}
+					alt="Together Apart"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-300"
 		},
 		{
 			id: 3,
-			content: <PhotoComponent src={Eden} alt="Eden" />,
+			content:
+				<PhotoComponent
+					src={Eden}
+					alt="Eden"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-400"
 		},
 		{
 			id: 4,
-			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			content:
+				<PhotoComponent
+					src={BorderKills}
+					alt="Border Kills"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-2 row-span-2 bg-gray-500"
 		},
 		{
 			id: 5,
-			content: <PhotoComponent src={KillingMeSoftly} alt="Killing Me Softly" />,
+			content:
+				<PhotoComponent
+					src={KillingMeSoftly}
+					alt="Killing Me Softly"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-3 bg-gray-600"
 		},
 		{
 			id: 6,
-			content: <PhotoComponent src={SmallBoats} alt="Small Boats" />,
+			content:
+				<PhotoComponent
+					src={SmallBoats}
+					alt="Small Boats"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-1 bg-gray-700"
 		},
 		{
 			id: 7,
-			content: <PhotoComponent src={NarrowSea} alt="Narrow Sea" />,
+			content:
+				<PhotoComponent
+					src={NarrowSea}
+					alt="Narrow Sea"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-2 row-span-3 bg-gray-800"
 		},
 		{
 			id: 8,
-			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			content:
+				<PhotoComponent
+					src={TogetherApart}
+					alt="Together Apart"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-900"
 		},
 		{
 			id: 9,
-			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			content:
+				<PhotoComponent
+					src={BorderKills}
+					alt="Border Kills"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-300"
 		},
 		{
 			id: 10,
-			content: <PhotoComponent src={NarrowSea} alt="Narrow Sea" />,
+			content:
+				<PhotoComponent
+					src={NarrowSea}
+					alt="Narrow Sea"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-2 row-span-2 bg-gray-400"
 		},
 		{
 			id: 11,
-			content: <PhotoComponent src={KillingMeSoftly} alt="Killing Me Softly" />,
+			content:
+				<PhotoComponent
+					src={KillingMeSoftly}
+					alt="Killing Me Softly"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-3 bg-gray-500"
 		},
 		{
 			id: 12,
-			content: <PhotoComponent src={Eden} alt="Eden" />,
+			content:
+				<PhotoComponent
+					src={Eden}
+					alt="Eden"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-1 bg-gray-600"
 		},
 		{
 			id: 13,
-			content: <PhotoComponent src={SmallBoats} alt="Small Boats" />,
+			content:
+				<PhotoComponent
+					src={SmallBoats}
+					alt="Small Boats"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-2 row-span-2 bg-gray-700"
 		},
 		{
 			id: 14,
-			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			content:
+				<PhotoComponent
+					src={TogetherApart}
+					alt="Together Apart"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-800"
 		},
 		{
 			id: 15,
-			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			content:
+				<PhotoComponent
+					src={BorderKills}
+					alt="Border Kills"
+					title="Together (A)part"
+					subtitle="The Bruderhof Communities"
+				/>,
 			className: "col-span-1 row-span-2 bg-gray-900"
 		},
 	];
@@ -112,14 +196,33 @@ const Page = async () => {
 
 export default Page;
 
-const PhotoComponent = ({ src, alt }: { src: StaticImageData, alt: string }) => (
-	<div className="relative w-full h-full overflow-hidden">
+const PhotoComponent = ({
+	src,
+	alt,
+	title,
+	subtitle
+}: {
+	src: StaticImageData,
+	alt: string,
+	title: string,
+	subtitle: string
+}) => (
+	<div className="relative w-full h-full overflow-hidden group">
 		<Image
 			src={src}
 			alt={alt}
 			layout="fill"
 			objectFit="cover"
-			className="lg:filter lg:grayscale hover:filter-none transform transition-all duration-500 ease-in-out hover:scale-110"
+			className="lg:filter lg:grayscale group-hover:filter-none transform transition-all duration-500 ease-in-out group-hover:scale-110"
 		/>
+		<div
+			id="title-container"
+			className="absolute inset-x-0 bottom-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent
+                 transform translate-y-full transition-all duration-500 ease-in-out
+                 group-hover:translate-y-0"
+		>
+			<h2 className="text-xl font-bold">{title}</h2>
+			<h3 className="text-sm">{subtitle}</h3>
+		</div>
 	</div>
 );
