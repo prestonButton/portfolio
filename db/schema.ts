@@ -16,7 +16,7 @@ const stories = pgTable('stories', {
 // Create Images Table
 const images = pgTable('images', {
     id: serial('id').primaryKey(),
-    storyId: serial('story_id').references(() => stories.id).onDelete('cascade'),
+    storyId: serial('story_id').references(() => stories.id),
     url: varchar('url', { length: 500 }).notNull(), // Link to blob storage
     title: varchar('title', { length: 255 }),
     caption: text('caption')

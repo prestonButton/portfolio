@@ -2,8 +2,7 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 
 // Photos Imports
-import Cover from "@/public/portfolio_photos/cover.jpg";
-
+import TogetherApart from "@/public/portfolio_photos/cover.jpg";
 import Eden from "@/public/portfolio_photos/Eden.jpg";
 import BorderKills from "@/public/portfolio_photos/border_kills.jpg";
 import IndeterminateState from "@/public/portfolio_photos/indeterminate_state.jpg";
@@ -11,124 +10,116 @@ import KillingMeSoftly from "@/public/portfolio_photos/killing_me_softly.jpg";
 import NarrowSea from "@/public/portfolio_photos/narrow_sea.jpg";
 import SmallBoats from "@/public/portfolio_photos/small_boats.jpg";
 
-const data = [
-  {
-    slug: "together-apart",
-    title: "Together (A)part",
-    subTitle: "The Bruderhof Community",
-    coverImage: Cover,
-    cols: 8,
-  },
-  {
-    slug: "border-kills",
-    title: "Border Kills",
-    subTitle: "The Mediterranean Crisis",
-    coverImage: BorderKills,
-    cols: 4,
-  },
-  {
-    slug: "indeterminate-state",
-    title: "Indeterminate State",
-    subTitle: "The Calais Jungle",
-    coverImage: IndeterminateState,
-    cols: 4,
-  },
-  {
-    slug: "killing-me-softly",
-    title: "Killing Me Softly",
-    subTitle: "The Calais Jungle",
-    coverImage: KillingMeSoftly,
-    cols: 8,
-  },
-  {
-    slug: "narrow-sea",
-    title: "Narrow Sea",
-    subTitle: "The Mediterranean Crisis",
-    coverImage: NarrowSea,
-    cols: 6,
-  },
-  {
-    slug: "small-boats",
-    title: "Small Boats",
-    subTitle: "The Mediterranean Crisis",
-    coverImage: SmallBoats,
-    cols: 6,
-  },
-  {
-    slug: "eden",
-    title: "Eden",
-    subTitle: "The Bruderhof Community",
-    coverImage: Eden,
-    cols: 8,
-  },
-];
-
 const Page = async () => {
-  return (
-    <div id="container" className="flex flex-col items-center p-4 w-svw h-svh">
-      <h1 className="py-4 text-2xl font-bold text-gray-700">
-        Danny Burrows Photography
-      </h1>
-      <section
-        id="photo_grid"
-        className="grid w-full grid-cols-12 gap-3 mb-12 border md:grid-cols-12"
-      >
-        {
-          // Loop through the data array and create a GridPhoto component for each item
-          data.map((item, index) => (
-            <GridPhoto
-              key={index.toString()}
-              cols={item.cols}
-              title={item.title}
-              subtitle={item.subTitle}
-              image={item.coverImage}
-              slug={item.slug}
-            />
-          ))
-        }
-      </section>
-    </div>
-  );
+	const gridItems = [
+		{
+			id: 1,
+			content:
+				<h1
+					className="text-5xl font-bold ml-2"
+				>
+					Danny Burrows Photography
+				</h1>,
+			className: "col-span-2 row-span-2 bg-gray-200"
+		},
+		{
+			id: 2,
+			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			className: "col-span-1 row-span-2 bg-gray-300"
+		},
+		{
+			id: 3,
+			content: <PhotoComponent src={Eden} alt="Eden" />,
+			className: "col-span-1 row-span-2 bg-gray-400"
+		},
+		{
+			id: 4,
+			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			className: "col-span-2 row-span-2 bg-gray-500"
+		},
+		{
+			id: 5,
+			content: <PhotoComponent src={KillingMeSoftly} alt="Killing Me Softly" />,
+			className: "col-span-1 row-span-3 bg-gray-600"
+		},
+		{
+			id: 6,
+			content: <PhotoComponent src={SmallBoats} alt="Small Boats" />,
+			className: "col-span-1 row-span-1 bg-gray-700"
+		},
+		{
+			id: 7,
+			content: <PhotoComponent src={NarrowSea} alt="Narrow Sea" />,
+			className: "col-span-2 row-span-3 bg-gray-800"
+		},
+		{
+			id: 8,
+			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			className: "col-span-1 row-span-2 bg-gray-900"
+		},
+		{
+			id: 9,
+			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			className: "col-span-1 row-span-2 bg-gray-300"
+		},
+		{
+			id: 10,
+			content: <PhotoComponent src={NarrowSea} alt="Narrow Sea" />,
+			className: "col-span-2 row-span-2 bg-gray-400"
+		},
+		{
+			id: 11,
+			content: <PhotoComponent src={KillingMeSoftly} alt="Killing Me Softly" />,
+			className: "col-span-1 row-span-3 bg-gray-500"
+		},
+		{
+			id: 12,
+			content: <PhotoComponent src={Eden} alt="Eden" />,
+			className: "col-span-1 row-span-1 bg-gray-600"
+		},
+		{
+			id: 13,
+			content: <PhotoComponent src={SmallBoats} alt="Small Boats" />,
+			className: "col-span-2 row-span-2 bg-gray-700"
+		},
+		{
+			id: 14,
+			content: <PhotoComponent src={TogetherApart} alt="Together Apart" />,
+			className: "col-span-1 row-span-2 bg-gray-800"
+		},
+		{
+			id: 15,
+			content: <PhotoComponent src={BorderKills} alt="Border Kills" />,
+			className: "col-span-1 row-span-2 bg-gray-900"
+		},
+	];
+
+	return (
+		<div className="w-screen h-screen overflow-y-auto p-2">
+			<div className="grid grid-cols-4 auto-rows-[minmax(200px,auto)] gap-2">
+				{gridItems.map((item) => (
+					<div
+						key={item.id}
+						className={`flex items-center justify-center text-gray-800 ${item.className}`}
+					>
+						{item.content}
+					</div>
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default Page;
 
-const GridPhoto = ({
-  cols = 6,
-  rows = 1,
-  title,
-  subtitle,
-  image,
-  slug,
-  start,
-}: {
-  cols: number;
-  rows?: number;
-  start?: number;
-  title: string;
-  subtitle: string;
-  image: StaticImageData;
-  slug: string;
-}) => {
-  return (
-    <Link
-      href={`/${slug}`}
-      className={`h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden relative group lg:filter lg:grayscale lg:hover:filter-none ${start ? `col-start-${start}` : ""}`}
-    >
-      <Image
-        src={image}
-        alt="Cover photo"
-        priority
-        className="w-full h-[calc(100%-1.5rem)] lg:h-full object-cover lg:filter lg:hover:scale-105 transition-transform duration-300 ease-in-out"
-      />
-      <div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full px-2 text-xs text-center text-gray-500 transition-all duration-300 ease-in-out lg:items-start lg:flex-col space-2 lg:w-auto lg:text-left lg:text-white lg:p-2 lg:text-2xl lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-full lg:group-hover:translate-y-0">
-        <span className="lg:font-semibold text-nowrap text-ellipsis">
-          {title}{" "}
-        </span>
-        <span className="text-ellipses line-clamp-1 text-pretty invisible md:visible text-ellipsis lg:text-lg before:content-['_-_'] lg:before:content-['']">
-          {subtitle}
-        </span>
-      </div>
-    </Link>
-  );
-};
+const PhotoComponent = ({ src, alt }: { src: StaticImageData, alt: string }) => (
+	<div className="relative w-full h-full overflow-hidden">
+		<Image
+			src={src}
+			alt={alt}
+			layout="fill"
+			objectFit="cover"
+			className="lg:filter lg:grayscale hover:filter-none transform transition-all duration-500 ease-in-out hover:scale-110"
+		/>
+	</div>
+);
