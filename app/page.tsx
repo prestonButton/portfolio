@@ -30,6 +30,7 @@ const Page = async () => {
 					alt="Together Apart"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-300"
 		},
@@ -41,6 +42,7 @@ const Page = async () => {
 					alt="Eden"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-400"
 		},
@@ -52,6 +54,7 @@ const Page = async () => {
 					alt="Border Kills"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-2 row-span-2 bg-gray-500"
 		},
@@ -63,6 +66,7 @@ const Page = async () => {
 					alt="Killing Me Softly"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-3 bg-gray-600"
 		},
@@ -74,6 +78,7 @@ const Page = async () => {
 					alt="Small Boats"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-1 bg-gray-700"
 		},
@@ -85,6 +90,7 @@ const Page = async () => {
 					alt="Narrow Sea"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-2 row-span-3 bg-gray-800"
 		},
@@ -96,6 +102,7 @@ const Page = async () => {
 					alt="Together Apart"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-900"
 		},
@@ -107,6 +114,7 @@ const Page = async () => {
 					alt="Border Kills"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-300"
 		},
@@ -118,6 +126,7 @@ const Page = async () => {
 					alt="Narrow Sea"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-2 row-span-2 bg-gray-400"
 		},
@@ -129,6 +138,7 @@ const Page = async () => {
 					alt="Killing Me Softly"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-3 bg-gray-500"
 		},
@@ -140,6 +150,7 @@ const Page = async () => {
 					alt="Eden"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-1 bg-gray-600"
 		},
@@ -151,6 +162,7 @@ const Page = async () => {
 					alt="Small Boats"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-2 row-span-2 bg-gray-700"
 		},
@@ -162,6 +174,7 @@ const Page = async () => {
 					alt="Together Apart"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-800"
 		},
@@ -173,6 +186,7 @@ const Page = async () => {
 					alt="Border Kills"
 					title="Together (A)part"
 					subtitle="The Bruderhof Communities"
+					slug="together-apart"
 				/>,
 			className: "col-span-1 row-span-2 bg-gray-900"
 		},
@@ -200,20 +214,21 @@ const PhotoComponent = ({
 	src,
 	alt,
 	title,
-	subtitle
+	subtitle,
+	slug
 }: {
 	src: StaticImageData,
 	alt: string,
 	title: string,
 	subtitle: string
+	slug: string
 }) => (
-	<div className="relative w-full h-full overflow-hidden group">
+	<Link href={`/${slug}`} className="relative w-full h-full overflow-hidden group">
 		<Image
 			src={src}
 			alt={alt}
-			layout="fill"
-			objectFit="cover"
-			className="lg:filter lg:grayscale group-hover:filter-none transform transition-all duration-500 ease-in-out group-hover:scale-110"
+			fill
+			className="object-cover lg:filter lg:grayscale group-hover:filter-none transform transition-all duration-500 ease-in-out group-hover:scale-110"
 		/>
 		<div
 			id="title-container"
@@ -224,5 +239,5 @@ const PhotoComponent = ({
 			<h2 className="text-xl font-bold">{title}</h2>
 			<h3 className="text-sm">{subtitle}</h3>
 		</div>
-	</div>
+	</Link>
 );
