@@ -1,14 +1,17 @@
 import type { StaticImageData } from "next/image";
 
-type Story = {
-  slug: string;
-  title: string;
-  subTitle: string;
-  years: string;
-  coverImage: StaticImageData;
-  content: string;
-  cols: number;
-  images: StaticImageData[];
+type BasicStory = {
+	slug: string;
+	title: string;
+	subTitle: string;
+	coverImage: StaticImageData;
 };
 
-export type { Story };
+export type { BasicStory };
+
+type CompleteStory = BasicStory & {
+	content: string;
+	images: StaticImageData[];
+};
+
+export type { CompleteStory };

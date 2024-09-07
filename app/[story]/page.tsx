@@ -1,4 +1,4 @@
-import type { Story } from "@/types/story";
+import type { CompleteStory } from "@/types/story";
 import Image from "next/image";
 
 const API_URL = process.env.API_URL;
@@ -17,7 +17,7 @@ const Page = async ({ params }: { params: { story: string } }) => {
 		return data;
 	};
 
-	const story: Story = await getStory();
+	const story: CompleteStory = await getStory();
 
 	return (
 		<div className="w-svw h-svh flex flex-col p-0">
@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: { story: string } }) => {
 				>
 					<div className="flex flex-col justify-center items-start h-full">
 						<h1 className="text-white text-4xl font-bold">
-							{story.title} <span className="font-thin">- ({story.years})</span>
+							{story.title}
 						</h1>
 						<h2 className="text-white text-lg">{story.subTitle}</h2>
 					</div>

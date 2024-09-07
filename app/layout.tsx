@@ -1,6 +1,11 @@
-import { GeistMono, GeistSans } from "geist/font/mono";
 import "./globals.css";
 import Footer from "./footer";
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+	subsets: ['latin'],
+	display: 'swap',
+})
 
 const defaultUrl = process.env.VERCEL_URL
 	? `https://${process.env.VERCEL_URL}`
@@ -18,7 +23,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={GeistMono.className}>
+		<html lang="en" className={inter.className}>
 			<body className="flex flex-col min-h-screen bg-gray-200 text-black">
 				<main className="flex-grow flex flex-col items-center justify-center">
 					{children}
