@@ -1,4 +1,4 @@
-import { getStories } from "./actions/getStories";
+import { getStories } from "@/actions/getStories";
 
 const Page = async () => {
 
