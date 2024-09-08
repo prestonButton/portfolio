@@ -5,12 +5,12 @@ type BasicStory = {
 	title: string;
 	subTitle: string;
 	coverImage: StaticImageData;
+	content: string;
 };
 
 export type { BasicStory };
 
 type CompleteStory = BasicStory & {
-	content: string;
 	images: StaticImageData[];
 };
 

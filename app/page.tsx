@@ -1,4 +1,11 @@
-const Page = () => {
+import { getStories } from "./actions/getStories";
+
+const Page = async () => {
+
+	const stories = await getStories()
+
+	console.log('stories:', stories)
+
 	return (
 		<div id="title-and-nav" className="flex w-screen h-screen">
 			<div className="w-2/5 p-4">

@@ -46,6 +46,7 @@ export type Database = {
       }
       stories: {
         Row: {
+          content: string | null
           cover_image: string | null
           created_at: string
           id: number
@@ -54,6 +55,7 @@ export type Database = {
           title: string | null
         }
         Insert: {
+          content?: string | null
           cover_image?: string | null
           created_at?: string
           id?: number
@@ -62,6 +64,7 @@ export type Database = {
           title?: string | null
         }
         Update: {
+          content?: string | null
           cover_image?: string | null
           created_at?: string
           id?: number
@@ -71,31 +74,23 @@ export type Database = {
         }
         Relationships: []
       }
-      story: {
+      test: {
         Row: {
-          content: string | null
           created_at: string
-          story_id: number
+          id: number
+          text: string | null
         }
         Insert: {
-          content?: string | null
           created_at?: string
-          story_id?: number
+          id?: number
+          text?: string | null
         }
         Update: {
-          content?: string | null
           created_at?: string
-          story_id?: number
+          id?: number
+          text?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "story_story_id_fkey"
-            columns: ["story_id"]
-            isOneToOne: true
-            referencedRelation: "stories"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
