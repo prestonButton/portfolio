@@ -23,11 +23,11 @@ const Page = async () => {
 						id="column"
 						key={index}
 						className={`flex-1 bg-gray-${300 + index * 100} overflow-y-auto h-screen ${index === 0 ? 'transform translate-y-[10vh]' :
-								index === 2 ? 'transform translate-y-[15vh]' : ''
+							index === 2 ? 'transform translate-y-[15vh]' : ''
 							}`}
 					>
 						{group.map((story) => (
-							<div id="story" key={story.id} className="m-2 bg-white">
+							<div id="story" key={story.id} className="m-2 bg-white relative overflow-hidden group">
 								<Image
 									src={new URL(story.cover_image!).href}
 									alt={story.title!}
@@ -35,6 +35,14 @@ const Page = async () => {
 									height={500}
 									className="w-full min-h-[400px] object-cover"
 								/>
+								<div
+									id="title-container"
+									className="absolute bottom-0 left-0 right-0 p-2 transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent text-white"
+								>
+									// adding a comment to get preview to work
+									<h2 className="text-xl font-bold">{story.title}</h2>
+									<p>{story.subtitle}</p>
+								</div>
 							</div>
 						))}
 					</div>
