@@ -39,7 +39,6 @@ const Page = async () => {
 									id="title-container"
 									className="absolute bottom-0 left-0 right-0 p-2 transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent text-white"
 								>
-									// adding a comment to get preview to work
 									<h2 className="text-xl font-bold">{story.title}</h2>
 									<p>{story.subtitle}</p>
 								</div>
