@@ -29,8 +29,8 @@ export default function RootLayout({
 				<main className="flex-grow flex flex-col items-center justify-center">
 					{children}
 				</main>
+				<SpeedInsights />
 			</body>
-			<SpeedInsights />
 		</html>
 	);
 }
