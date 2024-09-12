@@ -11,16 +11,13 @@ export async function getStory(slug: string) {
 			.from('stories')
 			.select('id, title, subtitle, slug, cover_image, content')
 			.eq('slug', slug)
-
-
+		
 		if (error) {
 			console.error('Error fetching story:', error)
 			throw new Error(error.message)
 		}
 
-		// console.log('Stories fetched:', stories)
-
-		return story;
+		return story[0]
 	} catch (error) {
 		console.error('Unexpected error:', error)
 		throw error

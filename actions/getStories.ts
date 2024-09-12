@@ -16,8 +16,6 @@ export async function getStories() {
 			throw new Error(error.message)
 		}
 
-		// console.log('Stories fetched:', stories)
-
 		return stories;
 	} catch (error) {
 		console.error('Unexpected error:', error)
