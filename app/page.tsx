@@ -23,7 +23,7 @@ const Page = async () => {
 					<div
 						id="column"
 						key={index}
-						className={`flex-1 bg-gray-${300 + index * 100} ${index === 0 ? 'transform translate-y-[10vh]' :
+						className={`flex-1 ${index === 0 ? 'transform translate-y-[10vh]' :
 							index === 2 ? 'transform translate-y-[15vh]' : ''
 							}`}
 					>
@@ -42,6 +42,7 @@ const Page = async () => {
 										width={300}
 										height={500}
 										className="w-full min-h-[400px] object-cover"
+										priority
 									/>
 									<div
 										id="title-container"

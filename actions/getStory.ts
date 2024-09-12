@@ -5,18 +5,19 @@ import supabase from "@/utilities/CreateClient"
 // used to make sure all data fetched is up to date
 const dynamic = 'force-dynamic'
 
-export async function getStories() {
+export async function getStory(slug: string) {
 	try {
-		const { data: stories, error } = await supabase
+		const { data: story, error } = await supabase
 			.from('stories')
-			.select('id, title, subtitle, slug, cover_image')
-
+			.select('id, title, subtitle, slug, cover_image, content')
+			.eq('slug', slug)
+		
 		if (error) {
-			console.error('Error fetching stories:', error)
+			console.error('Error fetching story:', error)
 			throw new Error(error.message)
 		}
 
-		return stories;
+		return story[0]
 	} catch (error) {
 		console.error('Unexpected error:', error)
 		throw error
