@@ -11,7 +11,7 @@ export default async function StoryPage({
 	const images = await getImages(params.story);
 
 	return (
-		<div className="min-h-screen w-screen">
+		<main className="min-h-screen w-screen">
 			<div id="title-and-nav" className="fixed top-0 left-0 w-1/5 p-4 h-full">
 				<h1 className="text-xl font-bold">{story.title}</h1>
 				<h3 className="text-md">{story.subtitle}</h3>
@@ -39,6 +39,6 @@ export default async function StoryPage({
 					</div>
 				))}
 			</div>
-		</div>
+		</main>
 	);
 }
