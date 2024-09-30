@@ -3,17 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Page = async () => {
-	const stories = await getStories();
+	// const stories = await getStories();
 
-	// Divide stories into three groups
-	const storyGroups = [
-		stories.slice(0, Math.ceil(stories.length / 3)),
-		stories.slice(
-			Math.ceil(stories.length / 3),
-			Math.ceil((2 * stories.length) / 3),
-		),
-		stories.slice(Math.ceil((2 * stories.length) / 3)),
-	];
+	// // Divide stories into three groups
+	// const storyGroups = [
+	// 	stories.slice(0, Math.ceil(stories.length / 3)),
+	// 	stories.slice(
+	// 		Math.ceil(stories.length / 3),
+	// 		Math.ceil((2 * stories.length) / 3),
+	// 	),
+	// 	stories.slice(Math.ceil((2 * stories.length) / 3)),
+	// ];
 
 	return (
 		<main className="min-h-screen">
@@ -21,7 +21,7 @@ const Page = async () => {
 				<h1 className="text-xl font-bold">Danny Burrows Photography</h1>
 			</div>
 
-			<div id="content-container" className="ml-[20%] w-4/5 flex items-start">
+			{/* <div id="content-container" className="ml-[20%] w-4/5 flex items-start">
 				{storyGroups.map((group, index) => (
 					<div
 						id="column"
@@ -60,7 +60,7 @@ const Page = async () => {
 						))}
 					</div>
 				))}
-			</div>
+			</div> */}
 		</main>
 	);
 };
