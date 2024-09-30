@@ -8,8 +8,11 @@ const Page = async () => {
 	// Divide stories into three groups
 	const storyGroups = [
 		stories.slice(0, Math.ceil(stories.length / 3)),
-		stories.slice(Math.ceil(stories.length / 3), Math.ceil(2 * stories.length / 3)),
-		stories.slice(Math.ceil(2 * stories.length / 3)),
+		stories.slice(
+			Math.ceil(stories.length / 3),
+			Math.ceil((2 * stories.length) / 3),
+		),
+		stories.slice(Math.ceil((2 * stories.length) / 3)),
 	];
 
 	return (
@@ -23,15 +26,16 @@ const Page = async () => {
 					<div
 						id="column"
 						key={index}
-						className={`flex-1 ${index === 0 ? 'transform translate-y-[10vh]' :
-							index === 2 ? 'transform translate-y-[15vh]' : ''
-							}`}
+						className={`flex-1 ${
+							index === 0
+								? "transform translate-y-[10vh]"
+								: index === 2
+									? "transform translate-y-[15vh]"
+									: ""
+						}`}
 					>
 						{group.map((story) => (
-							<Link
-								href={`/stories/${story.slug}`}
-								key={story.id}
-							>
+							<Link href={`/stories/${story.slug}`} key={story.id}>
 								<div
 									id="story"
 									className="m-2 bg-white relative overflow-hidden group"
