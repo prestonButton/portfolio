@@ -17,17 +17,21 @@ export default async function StoryPage({
 				<h3 className="text-md">{story.subtitle}</h3>
 			</div>
 
-			<div id="content-container" className="ml-[20%] w-4/5 p-4 overflow-y-auto h-screen ">
+			<div
+				id="content-container"
+				className="ml-[20%] w-4/5 p-4 overflow-y-auto h-screen "
+			>
 				{images.map((image, index) => (
 					<div
 						key={index}
-						className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-							} mb-12 items-center`}
+						className={`flex ${
+							index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+						} mb-12 items-center`}
 					>
 						<div className="w-1/2">
 							<Image
 								src={image.url}
-								alt={'need alt text'}
+								alt={"need alt text"}
 								width={500}
 								height={300}
 								className="object-cover"
