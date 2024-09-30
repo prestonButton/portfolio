@@ -1,8 +1,9 @@
 Database design
 
-Table 1:
------------------------------
+## Table 1:
+
 stories
+
 - id (autoincrement) (p-key)
 - title (text) (unique)
 - subtitle (text) (unique)
@@ -10,12 +11,13 @@ stories
 - content (text) (unique)
 - dates (text)
 - cover_image (string) (unique)
-- images (string[]) (f-key?) *references images table*
+- images (string[]) (f-key?) _references images table_
 
-Table 2:
------------------------------
+## Table 2:
+
 images
-- id (string) (unique) *named in the fashion: story_id-image_id*
-- story (integer) *references stories.id*
+
+- id (string) (unique) _named in the fashion: story_id-image_id_
+- story (integer) _references stories.id_
 - title (string)
 - caption (string)
