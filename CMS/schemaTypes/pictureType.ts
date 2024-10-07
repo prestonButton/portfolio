@@ -8,8 +8,8 @@ export const pictureType = defineType({
 	type: "document",
 	fields: [
 		defineField({
-			name: "image",
-			title: "Image",
+			name: "picture",
+			title: "Picture",
 			type: "image",
 
 			validation: (Rule) => Rule.required(),
